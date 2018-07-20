@@ -14,7 +14,6 @@ int strIncChar(char *str, int len, int chr)
     //If the character rolls over, increment the next one too.
     if (chr >= len) {
 	//Trying to increment a charater off the end of the string.
-	fprintf(stderr, "Off the end of string\n");
 	return 0;
     }
     char prevChr = str[chr];
@@ -44,5 +43,6 @@ int main(int argc, char **argv)
     while (strIncChar(testString, stringLength, 0)) {
 	printf("%s\n", testString);
     }
+    fprintf(stderr, "Reached end of buffer. Terminating.\n");
     exit(0);
 }
