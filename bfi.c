@@ -3,7 +3,7 @@
 
 int isPrint(char c) {
 	//Determine if a character is printable
-  return ((c < 32) || (c == 127)) ? 0 : 1;
+     return !((c < 32) || (c == 127));
 }
 
 int strIncChar(char* str, int len, int chr) {
@@ -24,7 +24,12 @@ int strIncChar(char* str, int len, int chr) {
 }
 
 int main(int argc, char** argv) {
-	int stringLength = 11;
+  int stringLength;
+  if ((argc == 2) && (atoi(argv[1]) > 0)) {
+      stringLength = atoi(argv[1]);
+    } else {
+      	stringLength = 11;
+    }
 	char *testString = malloc(stringLength);
 	if (testString == NULL) {
 		fprintf(stderr, "Malloc failure!\n");
