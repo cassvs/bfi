@@ -32,12 +32,12 @@ int main(int argc, char **argv)
     } else {
 	stringLength = 11;
     }
-    char *testString = malloc(stringLength);
+    char *testString = malloc(stringLength + 1);
     if (testString == NULL) {
 	fprintf(stderr, "Malloc failure!\n");
 	exit(-1);
     }
-    for (int i = 0; i < stringLength; i++) {
+    for (int i = 0; i <= stringLength; i++) {
 	testString[i] = '\0';
     }
     while (strIncChar(testString, stringLength, 0)) {
